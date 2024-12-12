@@ -64,7 +64,8 @@ public:
             throw std::out_of_range("PriorityQueue is empty");
         }
         T first = sequence.Get(0).item;
-        sequence.RemoveAt(sequence.GetLength() - 1);  // Просто удаляем последний элемент
+        std::swap(sequence.Get(0), sequence.Get(sequence.GetLength() - 1));
+        sequence.RemoveAt(sequence.GetLength() - 1);
         HeapifyDown(0);
         return first;
     }
